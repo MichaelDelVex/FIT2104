@@ -52,8 +52,6 @@
     </form>     -->
 </div>
 
-
-
     <?php 
         include("connection.php");
         //use the variable names in the include file
@@ -82,20 +80,23 @@
         
         while($row = mysqli_fetch_array($result))
         {
-            echo "<tr>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_id'] ?> style="max-width:40px"> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_gname'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_fname'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_street'] ?> style="max-width:40px"> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_state'] ?> style="max-width:40px"> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_suburb'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_pc'] ?> style="max-width:40px"> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_email'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_mobile'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text, value=<?php echo $row['client_mailinglist'] ?>> <?php "</td>";
-            echo "<td>" ?> <button> SAVE </button> <?php "</td>";
-            echo "<td>" ?> <button> DELETE </button> <?php "</td>";
-            echo "</tr>";
+            ?> 
+            <form method="post" Action="modifyClient.php">
+            <tr id=<?php echo $row['client_id'] ?> > <?php
+            echo "<td>" ?> <input type=text name=id value=<?php echo $row['client_id'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=gname value=<?php echo $row['client_gname'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=fname value=<?php echo $row['client_fname'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=street value=<?php echo $row['client_street'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=state value=<?php echo $row['client_state'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=suburb value=<?php echo $row['client_suburb'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=pc value=<?php echo $row['client_pc'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=email value=<?php echo $row['client_email'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=mobile value=<?php echo $row['client_mobile'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=mailinglist value=<?php echo $row['client_mailinglist'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=submit value=SAVE> <?php "</td>";
+            echo "<td>" ?> <button id=<?php echo $row['client_id'] ?>> DELETE </button> <?php "</td>";
+            echo "</tr>"; ?>
+            </form> <?php
         }
         echo "</table>";
         
