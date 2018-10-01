@@ -93,20 +93,16 @@
             echo "<td>" ?> <input type=text name=email value=<?php echo $row['client_email'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=mobile value=<?php echo $row['client_mobile'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=mailinglist value=<?php echo $row['client_mailinglist'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=submit value=SAVE> <?php "</td>";
-            echo "<td>" ?> <button id=<?php echo $row['client_id'] ?>> DELETE </button> <?php "</td>";
+            echo "<td>" ?> <input type=submit value=SAVE action=update> <?php "</td>";
             echo "</tr>"; ?>
-            </form> <?php
+            </form>
+             <?php
         }
         echo "</table>";
         
         mysqli_close($conn);
 
     ?>
-
-
-
-
     
 <!-- FOOTER -->    
 <div class="footer">
@@ -118,6 +114,26 @@
    
 
 <script>
+
+function deleteCustomer(id){
+    alert("IT WORKS!")
+    <?php
+        include("connection.php");
+        $id = $_POST["id"];
+        $conn = new mysqli($host, $username, $password, $database);
+        $query = "DELETE * FROM client WHERE client_id LIKE $id;";
+
+        if (mysqli_query($conn, $query)) {
+            echo $_POST["action"];
+            echo "Record updated successfully";
+            
+        } else {
+            echo "Error updating record: " . mysqli_error($conn);
+            
+        }
+    ?>
+}
+
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
