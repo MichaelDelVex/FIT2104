@@ -12,7 +12,7 @@
 <div class="tab"> 
   <a href="home_page.html"><button>Home</button> </a>
   <a href="property.html"><button>Property</button> </a>
-  <a href="client.html"><button>Client</button> </a>
+  <a href="client.php"><button>Client</button> </a>
   <a href="type.html"><button>Type</button> </a>   
 </div>
 
@@ -29,7 +29,7 @@
     <h3>View clients</h3>
     
     <!-- FORM TO ADD NEW CLIENT -->
-    <form action="/action_page.php">
+<!-- <form action="/action_page.php">
      Given name <input type="text" name="Given name"> 
         <br>
      First name <input type="text" name="First name"> 
@@ -49,11 +49,63 @@
      Mail list<input type="checkbox" name="Mail List" value="Mail List">
         <br>    
     
-    </form>    
-    
+    </form>     -->
 </div>
 
-  
+
+
+    <?php 
+        include("connection.php");
+        //use the variable names in the include file
+        $conn = new mysqli($host, $username, $password, $database);
+        // Check connection
+        if (mysqli_connect_errno())
+        {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+        
+        $result = mysqli_query($conn,"SELECT * FROM client");
+        
+        echo "<table border='1'>
+        <tr>
+        <th>Client ID</th>
+        <th>Given Name</th>
+        <th>First Name</th>
+        <th>Street</th>
+        <th>State</th>
+        <th>Suburb</th>
+        <th>Postcode</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Mailing List</th>
+        </tr>";
+        
+        while($row = mysqli_fetch_array($result))
+        {
+            echo "<tr>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_id'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_gname'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_fname'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_street'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_state'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_suburb'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_pc'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_email'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_mobile'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text, value=<?php echo $row['client_mailinglist'] ?>> <?php "</td>";
+            echo "<td>" ?> <button> SAVE </button> <?php "</td>";
+            echo "<td>" ?> <button> DELETE </button> <?php "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+        
+        mysqli_close($conn);
+
+    ?>
+
+
+
+
     
 <!-- FOOTER -->    
 <div class="footer">
