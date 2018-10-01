@@ -12,9 +12,11 @@ ob_start();
 if(empty($_POST["uname"]))
 {
     ?>
-    <form method="post" action="6.php">
+    <form method="post" action="login.php">
         <table border="0" align="center" width="30%" cellpadding="2" cellspacing="5">
-
+            <!--<tr>
+                <td colspan="3" class="msg">&nbsp;<?echo $Msg; ?></td>
+            </tr>-->
             <tr>
                 <td class="pref">Username</td>
                 <td class="prefdisplaycentre"><input type="text" name="uname" size="12" maxlength="10"></td>
@@ -36,10 +38,10 @@ if(empty($_POST["uname"]))
 else
 {
     include("connection.php");
-    $conn = new mysqli("130.194.7.82", "s27840204", "monash00", "s27840204")
+    $conn = new mysqli($host, $username, $password, $database)
     or die("Couldn't log on to database");
 
-    $query="SELECT given_name, family_name FROM authenticate WHERE username = username AND password = password";
+    $query="SELECT given_name, family_name FROM authenticate WHERE username = ? AND password = ?";
 
     $stmt = mysqli_prepare($conn, $query);
     //echo $conn->error;
@@ -49,7 +51,7 @@ else
     $pword = hash('sha256', $_POST["pword"]);
     $stmt->execute();
     $stmt->bind_result($fname, $sname);
-    console.log($stmt);
+
     if(!empty($stmt->fetch()))
     {
         echo "Welcome to our site $fname $sname";
@@ -58,7 +60,7 @@ else
     else
     {
         echo "Sorry, login details incorrect";
-echo $query;}
+    }
 }
 ?>
 </body>
