@@ -28,7 +28,7 @@ $conn = new mysqli($host, $username, $password, $database);
     }
 
     if (mysqli_query($conn, $query)) {
-        echo $query;
+        echo $_POST["action"];
         echo "Record updated successfully";
         
     } else {
