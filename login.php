@@ -4,19 +4,19 @@ ob_start();
 ?>
 <html>
 <head>
-    <title>Session Log In Example</title>
+    <title>Log In</title>
 </head>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="style_login.css">
 <body>
 <?php
 if(empty($_POST["uname"]))
 {
     ?>
+    <h2 align="center">Welcome to Robin RealEstate</h2>
+    <h3 align="center">Please enter your username and password</h3>
     <form method="post" action="login.php">
         <table border="0" align="center" width="30%" cellpadding="2" cellspacing="5">
-            <!--<tr>
-                <td colspan="3" class="msg">&nbsp;<?echo $Msg; ?></td>
-            </tr>-->
+            
             <tr>
                 <td class="pref">Username</td>
                 <td class="prefdisplaycentre"><input type="text" name="uname" size="12" maxlength="10"></td>
@@ -44,7 +44,7 @@ else
     $query="SELECT given_name, family_name FROM authenticate WHERE username = ? AND password = ?";
 
     $stmt = mysqli_prepare($conn, $query);
-    //echo $conn->error;
+    
 
     $stmt->bind_param('ss', $uname,$pword);
     $uname= $_POST["uname"];
