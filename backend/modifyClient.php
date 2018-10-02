@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Simple Example - Sending Data Back to User</title>
+<title>Modify and View Clients</title>
 </head>
 <body>
 <?php

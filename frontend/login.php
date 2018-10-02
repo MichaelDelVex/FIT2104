@@ -6,7 +6,7 @@ ob_start();
 <head>
     <title>Log In</title>
 </head>
-<link rel="stylesheet" type="text/css" href="style_login.css">
+<link rel="stylesheet" type="text/css" href="../style/style_login.css">
 <body>
 <?php
 if(empty($_POST["uname"]))
@@ -37,7 +37,7 @@ if(empty($_POST["uname"]))
 }
 else
 {
-    include("connection.php");
+    include("../backend/connection.php");
     $conn = new mysqli($host, $username, $password, $database)
     or die("Couldn't log on to database");
 

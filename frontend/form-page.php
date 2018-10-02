@@ -1,5 +1,5 @@
 <?php
-        include("connection.php");
+        include("../backend/connection.php");
         //use the variable names in the include file
         $conn = new mysqli($host, $username, $password, $database);
         // Check connection

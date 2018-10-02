@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
 <h2>Ruthless Real Estate</h2>
 
-<!-- THE TAB BAR -->
-<div class="tab"> 
-  <a href="home_page.html"><button>Home</button> </a>
-  <a href="property.html"><button class="tablinks" onclick="openTab(event, 'Property')">Property</button> </a>
-  <a href="client.php"><button>Client</button> </a>
-  <a href="type.html"><button>Type</button> </a>   
-</div>
+<?php include_once('../backend/menu.php'); ?>
 
 <!-- PROPERTY PAGE -->    
 <div id="Home" class="tabcontent">
@@ -137,35 +131,6 @@
     </table>    
     
 </div>
-    
-  
-<!-- FOOTER -->    
-<div class="footer">
-  <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
-  <button class="tablinks" onclick="openTab(event, 'Property')">Property</button>
-  <button class="tablinks" onclick="openTab(event, 'Client')">Client</button>
-  <button class="tablinks" onclick="openTab(event, 'Type')">Type</button>    
-</div>
-   
-
-<script>
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
      
 </body>
 </html> 
