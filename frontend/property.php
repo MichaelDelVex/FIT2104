@@ -29,7 +29,13 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
     }
 
-    $result = mysqli_query($conn,"SELECT * FROM client");
+    $result = mysqli_query($conn,"SELECT type_name FROM type");
+
+    while($row = mysqli_fetch_array($result))
+    {
+        echo "<td>" ?> <input type=text name=id value=<?php echo $row['client_id'] ?>> <?php "</td>";
+        echo "<td>" ?> <input type=text name=type_name value=<?php echo $row['type_name'] ?>> <?php "</td>";
+    }
 
     echo "<table border='1'>
         <tr>
@@ -41,7 +47,11 @@
 
 
 
-        ?>
+
+
+
+    ?>
+
         <form method="post" Action="../backend/findProperty.php">
             <p>Search for a property type or suburb</p>
             <tr> <?php

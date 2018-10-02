@@ -16,7 +16,7 @@ if (isset($_POST['Search'])) {
 if(!empty($_POST['property_type']) & !empty($_POST['property_suburb']))
 {
 
-$query = "SELECT * FROM property WHERE property_type LIKE '$_POST[property_type]' AND property_suburb LIKE '$_POST[suburb]' ;";
+$query = "SELECT * FROM property WHERE property_type LIKE '$_POST[property_type]' AND property_suburb WHERE CONTAINS(property_suburb, '$_POST[suburb]') ;";
 
 $result = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($result))
@@ -69,8 +69,8 @@ while ($row = mysqli_fetch_array($result))
 }
 }
 
-else{
-$query = "SELECT * FROM property WHERE property_suburb LIKE '$_POST[suburb]' ;";
+else if(!empty($_POST['property_suburb'])){
+$query = "SELECT * FROM property WHERE property_suburb WHERE CONTAINS(property_suburb, '$_POST[suburb]') ;";
 
 $result = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($result))
