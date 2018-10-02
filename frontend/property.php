@@ -3,8 +3,18 @@
 <head>
 <link rel="stylesheet" type="text/css" href="../styles/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:login.php");
+    }
+    ?>
+
 </head>
 <body>
+
 
 <h2>Ruthless Real Estate</h2>
 
@@ -17,6 +27,7 @@
     <h3>Property</h3>
 
     <?php
+    echo $_COOKIE["fontface"];
     include("../backend/connection.php");
     //use the variable names in the include file
     $conn = new mysqli($host, $username, $password, $database);
@@ -92,6 +103,12 @@ echo "</table>";
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
 </script>
+
+<p>
+     <a href="../backend/showPropertyCode.html" target="_blank">
+         <img src="../code_images/property.JPG" >
+    </a>
+</p>
 
 </body>
 </html> 

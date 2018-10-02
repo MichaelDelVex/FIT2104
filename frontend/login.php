@@ -8,6 +8,7 @@ ob_start();
 </head>
 <link rel="stylesheet" type="text/css" href="../styles/style_login.css">
 <body>
+
 <?php
 if(empty($_POST["uname"]))
 {
@@ -56,6 +57,10 @@ else
     {
         echo "Welcome to our site $fname $sname";
         $_SESSION["access_status"] = "granted";
+
+        setcookie("loggedin", $uname);
+        header("location: ../frontend/home_page.php");
+
     }
     else
     {
