@@ -6,7 +6,7 @@ ob_start();
 <head>
     <title>Log In</title>
 </head>
-<link rel="stylesheet" type="text/css" href="../style/style_login.css">
+<link rel="stylesheet" type="text/css" href="../styles/style_login.css">
 <body>
 <?php
 if(empty($_POST["uname"]))
