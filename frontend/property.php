@@ -42,13 +42,12 @@
 
 
         ?>
-        <form method="post" Action="modifyClient.php">
+        <form method="post" Action="../backend/findProperty.php">
             <tr id=<?php echo $row['property_id'] ?> > <?php
                 echo "<td>" ?> <input type=text name=property_type value=<?php echo $row['property_type'] ?>> <?php "</td>";
                 echo "<td>" ?> <input type=text name=suburb value=<?php echo $row['property_suburb'] ?> style="max-width:40px"> <?php "</td>";
-                echo "<td>" ?> <input type=search value=Search action=update> <?php "</td>";
+                echo "<td>" ?> <input type=submit value=SEARCH name=search> <?php "</td>";
                 echo "</tr>";
-                echo '<td><input type="button" name="delete" onClick="deleteCustomer"></td>';
                 ?>
         </form>
 

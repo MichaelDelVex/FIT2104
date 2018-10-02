@@ -8,11 +8,16 @@
 
 <h2>Ruthless Real Estate</h2>
 
+<?php include_once('menu.php'); ?>
+
+
+<!-- CLIENT PAGE -->
 <div id="Home" class="tabcontent">
     <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
     <h2>Add New Client</h2>
 
 
+    <!-- FORM TO ADD NEW CLIENT -->
     <form method="post" Action="modifyClient.php">
         Given name <input type="text" name="gname">
         <br>
@@ -62,6 +67,7 @@ $result = mysqli_query($conn,"SELECT * FROM client");
 
 
 ?>
+
 </body>
 
 <!-- FOOTER -->
