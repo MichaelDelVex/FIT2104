@@ -11,51 +11,50 @@
 <?php include_once('../backend/menu.php');
 ?>
 
-
-
 <!-- PROPERTY PAGE -->
 <div id="Home" class="tabcontent">
     <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
     <h3>Property</h3>
-
 
     <?php
     include("../backend/connection.php");
     //use the variable names in the include file
     $conn = new mysqli($host, $username, $password, $database);
     // Check connection
-    if (mysqli_connect_errno())
-    {
+    if (mysqli_connect_errno()) {
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    } else {
+        $result = mysqli_query($conn, "SELECT * FROM type");
     }
 
-    $result = mysqli_query($conn,"SELECT * FROM client");
-
     echo "<table border='1'>
+    <tr>
+    <th>Property type</th>
+    <th>Suburb</th>
+    </tr>";
+?>
+
+    <form method="post" Action="../backend/findProperty.php">
+        <p>Search for a property type or suburb</p>
         <tr>
-        <th>Property type</th>
-         
-        <th>Suburb</th>
-            
-        </tr>";
-
-
-
-        ?>
-        <form method="post" Action="../backend/findProperty.php">
-            <p>Search for a property type or suburb</p>
-            <tr> <?php
-                echo "<td>" ?> <input type=text name=property_type > <?php "</td>";
-                echo "<td>" ?> <input type=text name=suburb > <?php "</td>";
-                echo "<td>" ?> <input type=submit value=Search name=Search> <?php "</td>";
-                echo "</tr>";
+            <td>
+                <select name=property_type>
+                <?php 
+                    echo "<option></option>";
+                    while($row = mysqli_fetch_array($result)) {
+                        echo "<option value=$row[type_id]> $row[type_name] </option>";
+                    }
                 ?>
-        </form>
+                </select>
+            </td>
+            <td> <input type=text name=property_suburb > </td>
+            <td> <input type=submit value=Search name=Search> </td>;
+        </tr>
+    </form>
 
+<?php
 
-        <?php
-
-    echo "</table>";
+echo "</table>";
 
     mysqli_close($conn);
     ?>
