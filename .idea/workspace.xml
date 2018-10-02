@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47079af6-aa87-46b2-b0f8-3f70a3316bde" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/findProperty.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/findProperty.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/property.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/property.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/menu.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,6 +43,13 @@
         <item name="s27840204@130.194.7.82" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="s27840204: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="client: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="s27840204@130.194.7.82" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="s27840204: schema" type="c314c289:MysqlImplModel$Schema" />
         <item name="type: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
@@ -52,6 +57,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="property" pinned="false" current-in-tab="true">
+        <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="client" pinned="false" current-in-tab="false">
         <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/client">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -61,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console_1.sql" pinned="false" current-in-tab="true">
+      <file leaf-file-name="console_1.sql" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console_1.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret selection-end-column="81" />
+              <caret column="54" lean-forward="true" selection-start-column="54" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -172,7 +186,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14813000" />
+    <option name="totallyTimeSpent" value="16495000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
@@ -470,10 +484,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
         <state>
-          <filtering enabled="true" />
+          <caret column="54" lean-forward="true" selection-start-column="54" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -484,10 +498,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor">
+    <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
-          <caret selection-end-column="81" />
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
