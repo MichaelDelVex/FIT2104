@@ -13,7 +13,8 @@
   <a href="home_page.html"><button>Home</button> </a>
   <a href="property.html"><button>Property</button> </a>
   <a href="client.php"><button>Client</button> </a>
-  <a href="type.html"><button>Type</button> </a>   
+  <a href="type.html"><button>Type</button> </a>
+  <a href="addClient.php"><button>Add Client</button> </a>    
 </div>
 
     
@@ -83,7 +84,7 @@
             ?> 
             <form method="post" Action="modifyClient.php">
             <tr id=<?php echo $row['client_id'] ?> > <?php
-            echo "<td>" ?> <input type=text name=id value=<?php echo $row['client_id'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=id value=<?php echo $row['client_id'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=gname value=<?php echo $row['client_gname'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=fname value=<?php echo $row['client_fname'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=street value=<?php echo $row['client_street'] ?> style="max-width:40px"> <?php "</td>";
@@ -93,7 +94,8 @@
             echo "<td>" ?> <input type=text name=email value=<?php echo $row['client_email'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=mobile value=<?php echo $row['client_mobile'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=mailinglist value=<?php echo $row['client_mailinglist'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=submit value=SAVE action=update> <?php "</td>";
+            echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";
+            echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>";
             echo "</tr>"; ?>
             </form>
              <?php
