@@ -14,11 +14,19 @@ $conn = new mysqli($host, $username, $password, $database);
 if (isset($_POST['search'])) {
     $query="SELECT * FROM property WHERE property_type LIKE '$_POST[property_type]';";
 
-    if (mysqli_query($conn, $query)) {
-        echo $query;
-
-    } else {
-        echo "Error deleting record: " . mysqli_error($conn);
+    $result = mysqli_query($conn,$query);
+    while($row = mysqli_fetch_array($result))
+    {
+        ?> 
+        <form method="post" Action="../backend/modifyClient.php">
+        <tr id=<?php echo $row['property_id'] ?> > <?php
+        echo "<td>" ?> <input type=text name=id value=<?php echo $row['property_id'] ?>> <?php "</td>";
+        echo "<td>" ?> <input type=text name=id value=<?php echo $row['property_type'] ?>> <?php "</td>";
+        echo "</tr>"; ?>
+        </form>
+            <?php
     }
+
+
 
 }

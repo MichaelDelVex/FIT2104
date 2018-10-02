@@ -11,8 +11,6 @@
 <?php include_once('../backend/menu.php');
 ?>
 
-
-
 <!-- PROPERTY PAGE -->
 <div id="Home" class="tabcontent">
     <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
