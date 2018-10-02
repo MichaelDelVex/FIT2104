@@ -6,4 +6,5 @@
   <a href="../frontend/type.php"><button> Type </button> </a>
   <a href="../backend/addType.php"><button> Add Type </button> </a>
   <a href="../frontend/viewProperties.php"><button> View Properties </button> </a>
+  <a href="../backend/addProperty.php"><button> Add Properties </button> </a>
 </div>
