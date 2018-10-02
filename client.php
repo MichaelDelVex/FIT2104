@@ -13,7 +13,8 @@
   <a href="home_page.html"><button>Home</button> </a>
   <a href="property.html"><button>Property</button> </a>
   <a href="client.php"><button>Client</button> </a>
-  <a href="type.html"><button>Type</button> </a>   
+  <a href="type.html"><button>Type</button> </a>
+  <a href="addClient.php"><button>Add Client</button> </a>    
 </div>
 
     
@@ -83,7 +84,7 @@
             ?> 
             <form method="post" Action="modifyClient.php">
             <tr id=<?php echo $row['client_id'] ?> > <?php
-            echo "<td>" ?> <input type=text name=id value=<?php echo $row['client_id'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=id value=<?php echo $row['client_id'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=gname value=<?php echo $row['client_gname'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=fname value=<?php echo $row['client_fname'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=street value=<?php echo $row['client_street'] ?> style="max-width:40px"> <?php "</td>";
@@ -93,20 +94,17 @@
             echo "<td>" ?> <input type=text name=email value=<?php echo $row['client_email'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=mobile value=<?php echo $row['client_mobile'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=mailinglist value=<?php echo $row['client_mailinglist'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=submit value=SAVE> <?php "</td>";
-            echo "<td>" ?> <button id=<?php echo $row['client_id'] ?>> DELETE </button> <?php "</td>";
+            echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";
+            echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>";
             echo "</tr>"; ?>
-            </form> <?php
+            </form>
+             <?php
         }
         echo "</table>";
         
         mysqli_close($conn);
 
     ?>
-
-
-
-
     
 <!-- FOOTER -->    
 <div class="footer">
@@ -118,6 +116,26 @@
    
 
 <script>
+
+function deleteCustomer(id){
+    alert("IT WORKS!")
+    <?php
+        include("connection.php");
+        $id = $_POST["id"];
+        $conn = new mysqli($host, $username, $password, $database);
+        $query = "DELETE * FROM client WHERE client_id LIKE $id;";
+
+        if (mysqli_query($conn, $query)) {
+            echo $_POST["action"];
+            echo "Record updated successfully";
+            
+        } else {
+            echo "Error updating record: " . mysqli_error($conn);
+            
+        }
+    ?>
+}
+
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");

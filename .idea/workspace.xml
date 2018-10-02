@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47079af6-aa87-46b2-b0f8-3f70a3316bde" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ed11ed5-b4a8-47b8-b9d1-e647c1291079.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ed11ed5-b4a8-47b8-b9d1-e647c1291079.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.php" beforeDir="false" afterPath="$PROJECT_DIR$/client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modifyClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/modifyClient.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,7 +46,7 @@
         <item name="s27840204@130.194.7.82" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="s27840204: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="client: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="property: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -52,10 +55,14 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="client" pinned="false" current-in-tab="true">
+      <file leaf-file-name="client" pinned="false" current-in-tab="false">
         <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/client">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -64,9 +71,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="displayPost.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Tutorial 5 database thing/displayPost.php">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="property" pinned="false" current-in-tab="true">
+        <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -79,6 +90,7 @@
       <list>
         <option value="$PROJECT_DIR$/client.html" />
         <option value="$PROJECT_DIR$/client.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console.sql" />
       </list>
     </option>
   </component>
@@ -91,7 +103,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="985" />
     <option name="height" value="1047" />
@@ -118,7 +130,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -146,12 +158,12 @@
       <option name="presentableId" value="Default" />
       <updated>1538353591276</updated>
       <workItem from="1538353592461" duration="249000" />
-      <workItem from="1538354154398" duration="3442000" />
+      <workItem from="1538354154398" duration="7871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3691000" />
+    <option name="totallyTimeSpent" value="8120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -162,7 +174,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Database Console" visible="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Database Console" weight="0.32943678" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11666667" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.1640625" />
@@ -199,16 +211,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Tutorial 5 database thing/insertTest.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../Tutorial 5 database thing/displayPost.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/client">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
