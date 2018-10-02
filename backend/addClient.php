@@ -8,16 +8,13 @@
 
 <h2>Ruthless Real Estate</h2>
 
-<?php include_once('menu.php'); ?>
 
-    
-<!-- CLIENT PAGE -->
+
 <div id="Home" class="tabcontent">
   <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
   <h2>Add New Client</h2>
 
     
-    <!-- FORM TO ADD NEW CLIENT -->
     <form method="post" Action="modifyClient.php">
      Given name <input type="text" name="gname"> 
         <br>
@@ -52,21 +49,6 @@
     
     </form>    
 </div>
-
-<?php 
-    include("connection.php");
-    //use the variable names in the include file
-    $conn = new mysqli($host, $username, $password, $database);
-    // Check connection
-    if (mysqli_connect_errno())
-    {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    }
-    
-    $result = mysqli_query($conn,"SELECT * FROM client");
-    
-
-?>
      
 </body>
 </html> 

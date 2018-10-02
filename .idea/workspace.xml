@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47079af6-aa87-46b2-b0f8-3f70a3316bde" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Assignment 2.1.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/addClient.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/connection.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/form-page.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/home_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modifyClient.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/property.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style_login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/type.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/website/tabs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/addClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/addClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/menu.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,7 +44,7 @@
         <item name="s27840204@130.194.7.82" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="s27840204: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="property: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="type: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -82,8 +69,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="property" pinned="false" current-in-tab="true">
+      <file leaf-file-name="property" pinned="false" current-in-tab="false">
         <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="type" pinned="false" current-in-tab="true">
+        <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/type">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -124,6 +120,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,7 +147,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -186,25 +182,28 @@
       <workItem from="1538353592461" duration="249000" />
       <workItem from="1538354154398" duration="7871000" />
       <workItem from="1538443729047" duration="10000" />
+      <workItem from="1538446262665" duration="628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8130000" />
+    <option name="totallyTimeSpent" value="8758000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11666667" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.1640625" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32943678" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11666667" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.1640625" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -213,7 +212,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="8" weight="0.32943678" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
@@ -245,29 +243,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.php">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="55" column="8" selection-start-line="55" selection-start-column="8" selection-end-line="55" selection-end-column="8" />
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+    <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/client">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
+    <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client.php" />
+    <entry file="file://$PROJECT_DIR$/client.php" />
     <entry file="file://$PROJECT_DIR$/../Tutorial 5 database thing/insertTest.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../Tutorial 5 database thing/displayPost.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/menu.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/menu.php" />
     <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/client">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -283,6 +288,13 @@
       </provider>
     </entry>
     <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/type">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
