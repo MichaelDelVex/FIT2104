@@ -36,7 +36,7 @@ if (isset($_POST['delete'])) {
 } else if (isset($_POST['add'])) {
 
     $query=" INSERT INTO type (type_name)
-    VALUES ('$_POST[name]';";
+    VALUES ('$_POST[name]');";
 
     if (mysqli_query($conn, $query)) {
         echo "Type Sucessfully Created";
