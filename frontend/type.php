@@ -3,6 +3,15 @@
 <head>
 <link rel="stylesheet" type="text/css" href="../styles/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:login.php");
+    }
+    ?>
 </head>
 <body>
 
@@ -11,7 +20,8 @@
 <?php include_once('../backend/menu.php'); ?>
 
 
-    <?php 
+    <?php
+
         include("../backend/connection.php");
         //use the variable names in the include file
         $conn = new mysqli($host, $username, $password, $database);
@@ -47,6 +57,14 @@
         mysqli_close($conn);
 
     ?>
+
+<p>
+    <a href="../backend/showTypeCode.html" target="_blank">
+        <img src="../code_images/type.jpg" >
+    </a>
+</p>
+
      
 </body>
+
 </html> 

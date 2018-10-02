@@ -3,6 +3,15 @@
 <head>
 <link rel="stylesheet" type="text/css" href="../styles/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:login.php");
+    }
+    ?>
+
 </head>
 <body>
 
@@ -76,6 +85,12 @@
         mysqli_close($conn);
 
     ?>
+
+<p>
+    <a href="../backend/showClientCode.html" target="_blank">
+        <img src="../code_images/client.JPG" >
+    </a>
+</p>
      
 </body>
 </html> 
