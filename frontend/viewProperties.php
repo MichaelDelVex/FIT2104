@@ -46,7 +46,6 @@
         <th>Postcode</th>
         <th>List Price</th>
         <th>List Date</th>
-        <th>Sale Date</th>
         <th>Description</th>
         <th>Image Path</th>
         </tr>";
@@ -65,7 +64,6 @@
             echo "<td>" ?> <input type=text name=pc value=<?php echo $row['property_pc'] ?> style="max-width:40px"> <?php "</td>";
             echo "<td>" ?> <input type=text name=listprice value=<?php echo $row['list_price'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=listdate value=<?php echo $row['list_date'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=saledate value=<?php echo $row['sale_date'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=desc value=<?php echo $row['desc'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=imagename value=<?php echo $row['image_name'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";

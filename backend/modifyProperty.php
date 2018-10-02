@@ -40,10 +40,15 @@ if (isset($_POST['delete'])) {
 
 } else if (isset($_POST['add'])) {
 
-    $query=" INSERT INTO property (property_type, property_street, property_suburb, property_state, property_pc, list_price, list_date, sale_date, desc, image_name)
-    VALUES ('$_POST[type]', '$_POST[street]', '$_POST[suburb]', '$_POST[state]', '$_POST[pc]', '$_POST[listprice]', '$_POST[listdate]', '$_POST[saledate]', '$_POST[desc]', '$_POST[imagename]',);";
+    $result = mysqli_query($conn, "SELECT client_id FROM client WHERE client_mobile LIKE '$_POST[mobile]'");
+    $row = mysqli_fetch_array($result);
 
-    if (mysqli_query($conn, $query)) {
+    $queryAddProperty=" INSERT INTO property (seller_id, property_type, property_street, property_suburb, property_state, property_pc, list_price, list_date, `desc`, image_name)
+    VALUES ('$row[client_id]', '$_POST[type]', '$_POST[street]', '$_POST[suburb]', '$_POST[state]', '$_POST[pc]', '$_POST[listprice]', '$_POST[listdate]', '$_POST[desc]', '$_POST[imagename]');";
+
+    echo $queryAddProperty; ?> <br> <?php
+
+    if (mysqli_query($conn, $queryAddProperty) ) {
         echo "Property Sucessfully Created";
     } else {
         echo "Error Creating Property: " . mysqli_error($conn); 
