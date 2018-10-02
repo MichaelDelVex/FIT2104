@@ -8,6 +8,8 @@
 
 <h2>Ruthless Real Estate</h2>
 
+<?php include_once('../backend/menu.php'); ?>
+
 <div id="Home" class="tabcontent">
     <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
     <h2>Add New Client</h2>
