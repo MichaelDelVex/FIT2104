@@ -25,11 +25,27 @@ table {
     width: 100%;
 }
 
+.propertyView {
+    border: 5px solid rgb(#90c8ff);
+    padding: 10px;
+    margin: 10px;
+}
+
+.propertyView > tr {
+    width: 150px;
+}
+
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
+
+td img { 
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
 
 tr:nth-child(even) {
     background-color: #dddddd;

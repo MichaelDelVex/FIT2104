@@ -58,7 +58,7 @@ else
         echo "Welcome to our site $fname $sname";
         $_SESSION["access_status"] = "granted";
 
-        setcookie("loggedin", $uname);
+        setcookie("loggedin", $uname , 0 , '/');
         header("location: ../frontend/home_page.php");
 
     }
