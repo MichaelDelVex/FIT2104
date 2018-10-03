@@ -30,13 +30,21 @@
         echo "<td style='width: 100px'>" ?> <input type="number" name="mobile"> <?php "</td>";
         echo "</tr>"; ?><?php
         echo "<td>" ?> Property type* <?php "</td>";
-        echo "<td>" ?> <select name="type">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select> <?php "</td>";
+        echo "<td>" 
+        ?>
+                <select name=type>
+                    <?php 
+                        include("../backend/connection.php");
+                        $conn = new mysqli($host, $username, $password, $database);
+                        $propertyResult = mysqli_query($conn, "SELECT * FROM type");
+                        while($propRow = mysqli_fetch_array($propertyResult)) {
+                            echo "<option value=$propRow[type_id]> $propRow[type_name] </option>";
+                        }
+                    ?>
+                </select> 
+        <?php 
+
+        echo "</td>";
         echo "</tr>"; ?><?php
         echo "<td>" ?> Street* <?php "</td>";
         echo "<td>" ?> <input type="text" name="street"> <?php "</td>";
