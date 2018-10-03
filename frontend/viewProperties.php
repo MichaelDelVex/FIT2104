@@ -70,13 +70,13 @@
 
             echo "<td>" ?> 
                 <select name="state">
-                    <option value="NSW"<?php $row['property_state'] == 'NSW' ? " selected='selected'" : '' ?>>NSW</option>
-                    <option value="NT"<?php $row['property_state'] == 'NT' ? " selected='selected'" : '' ?>>NT</option>
-                    <option value="QLD"<?php $row['property_state'] == 'QLD' ? " selected='selected'" : '' ?>>QLD</option>
-                    <option value="SA"<?php $row['property_state'] == 'SA' ? " selected='selected'" : '' ?>>SA</option>
-                    <option value="TAS"<?php $row['property_state'] == 'TAS' ? " selected='selected'" : '' ?>>TAS</option>
-                    <option value="VIC"<?php $row['property_state'] == 'VIC' ? " selected='selected'" : '' ?>>VIC</option>
-                    <option value="WA"<?php $row['property_state'] == 'WA' ? " selected='selected'" : '' ?>>WA</option>
+                    <option value="NSW"<?php if ($row['property_state'] == 'NSW') echo ' selected="selected"'; ?>>NSW</option>
+                    <option value="NT"<?php if ($row['property_state'] == 'NT') echo ' selected="selected"'; ?>>NT</option>
+                    <option value="QLD"<?php if ($row['property_state'] == 'QLD') echo ' selected="selected"'; ?>>QLD</option>
+                    <option value="SA"<?php if ($row['property_state'] == 'SA') echo ' selected="selected"'; ?>>SA</option>
+                    <option value="TAS"<?php if ($row['property_state'] == 'TAS') echo ' selected="selected"'; ?>>TAS</option>
+                    <option value="VIC"<?php if ($row['property_state'] == 'VIC') echo ' selected="selected"'; ?>>VIC</option>
+                    <option value="WA"<?php if ($row['property_state'] == 'WA') echo ' selected="selected"'; ?>>WA</option>
                 </select> <?php 
                 "</td>";
             echo "<td>" ?> <input type=text name=pc value=<?php echo $row['property_pc'] ?> style="max-width:70px"> <?php "</td>";
@@ -91,8 +91,6 @@
             echo "</tr>"; ?>
             </form>
              <?php
-
-            echo $row['property_state'] == 'VIC' ? " selected=selected" : 'wrong';
         }
         echo "</table>";
         
