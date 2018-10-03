@@ -59,8 +59,8 @@
     ?>
 
 <p>
-    <a href="../backend/showTypeCode.html" target="_blank">
-        <img src="../code_images/type.jpg" >
+    <a href="../backend/showFeatureCode.html" target="_blank">
+        <img src="../code_images/property_feature.JPG" >
     </a>
 </p>
 

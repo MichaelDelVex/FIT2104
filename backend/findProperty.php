@@ -2,6 +2,15 @@
 <head>
     <title>Property Results</title>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:../frontend/login.php");
+
+    }
+    ?>
 </head>
 <body>
 <?php

@@ -13,9 +13,23 @@
 
 <!DOCTYPE html>
 <head>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:../frontend/login.php");
+
+    }
+    ?>
+
     <title>Form submission</title>
 </head>
 <body>
+<h2>Ruthless Real Estate</h2>
+<?php include_once('../backend/menu.php'); ?>
 
 <form action="../backend/email.php" method="post">
     <p>Enter the </p>
