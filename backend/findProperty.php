@@ -1,6 +1,7 @@
 <html>
 <head>
-    <title>Modify and View Clients</title>
+    <title>Property Results</title>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
 </head>
 <body>
 <?php
@@ -8,17 +9,20 @@ include("connection.php");
 //use the variable names in the include file
 $conn = new mysqli($host, $username, $password, $database);
 ?>
+<?php include_once('../backend/menu.php'); ?>
 
 <?php
+
+
 
 if (isset($_POST['Search'])) {
 
     if(!empty($_POST['property_type']) && !empty($_POST['property_suburb'])){
-        $query = "SELECT * FROM property WHERE property_type LIKE $_POST[property_type] AND property_suburb LIKE '%$_POST[property_suburb]%'";
+        $query = "SELECT * FROM property WHERE property_type LIKE $_POST[property_type] AND property_suburb LIKE '%$_POST[property_suburb]%' ORDER BY property_suburb";
     } else if(!empty($_POST['property_type'])) {
-        $query = "SELECT * FROM property WHERE property_type LIKE '$_POST[property_type]'";
+        $query = "SELECT * FROM property WHERE property_type LIKE '$_POST[property_type]' ORDER BY property_suburb";
     } else if(!empty($_POST['property_suburb'])) {
-        $query = "SELECT * FROM property WHERE property_suburb LIKE '%$_POST[property_suburb]%'";
+        $query = "SELECT * FROM property WHERE property_suburb LIKE '%$_POST[property_suburb]%' ORDER BY property_suburb";
     } else {
 
         echo ("<script LANGUAGE='JavaScript'>
@@ -27,25 +31,39 @@ if (isset($_POST['Search'])) {
     </script>");
         return;
     }
-
     $result = mysqli_query($conn, $query);
-    while ($row = mysqli_fetch_array($result)) { ?>
-        <form method="post" Action="../backend/findProperty.php">
-            <tr id=<?php echo $row['property_id'] ?>> <?php
-                echo "<td>" ?> <input type=text name=id value=<?php echo $row['property_id'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=seller_id value=<?php echo $row['seller_id'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=property_type value=<?php echo $row['property_type'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=property_street value=<?php echo $row['property_street'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=property_suburb value=<?php echo $row['property_suburb'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=property_state value=<?php echo $row['property_street'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=property_pc value=<?php echo $row['property_pc'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=list_price value=<?php echo $row['list_price'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=list_date value=<?php echo $row['list_date'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=sale_date value=<?php echo $row['sale_date'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=desc value=<?php echo $row['desc'] ?>> <?php "</td>";
-                echo "<td>" ?> <input type=text name=image_name value=<?php echo $row['image_name'] ?>> <?php "</td>";
-                echo "</tr>"; ?>
-        </form> <?php
+    $propCount = mysqli_num_rows($result);
+
+    if($propCount < 1){
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('No Properties were found that match your search criteria! Please try again');
+    window.location.href='../frontend/property.php';
+    </script>");
+    } else {
+
+        echo $propCount. " Properties found that match your search criteria.";
+
+        while ($row = mysqli_fetch_array($result)) {
+            ?>
+                <table class=propertyView>
+                <tr style="width: 150px;">
+                    <td><?php echo $row['property_street'] ?> <?php echo $row['property_suburb'] ?> <?php echo $row['property_pc'] ?> <?php echo $row['property_state'] ?></td>
+                    <th rowspan=4> <img src="../property_images/<?php echo $row['image_name'] ?>.jpg" style="max-height:400px; max-width:400px;"></th>
+                </tr>
+                <tr style="width: 150px;">
+                    <td><?php echo $row['desc'] ?></td>
+                </tr>
+                <tr style="width: 150px;">
+                    <td> Listed on : <?php echo $row['list_date'] ?></td>
+                </tr>
+                <tr style="width: 150px;">
+                    <td>$<?php echo $row['list_price'] ?></td>
+                </tr>
+                </table>
+            <?php
+        }
+        
+
     }
 } else {
         echo "Error finding data" ;
