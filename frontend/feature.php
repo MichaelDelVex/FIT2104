@@ -9,7 +9,7 @@
         echo $_COOKIE["loggedin"];
     }
     else {
-        header("location:../frontend/login.php");
+        header("location:login.php");
 
     }
     ?>
@@ -32,22 +32,22 @@
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
         
-        $result = mysqli_query($conn,"SELECT * FROM type");
+        $result = mysqli_query($conn,"SELECT * FROM feature");
         
         echo "<table border='1'>
         <tr>
-        <th>Type Description</th>
+        <th>Feature</th>
         </tr>";
         
         while($row = mysqli_fetch_array($result))
         {
             ?> 
-            <form method="post" Action="../backend/modifyType.php">
-            <tr id=<?php echo $row['type_id'] ?> > <?php
-            echo "<td>" ?> <input type=text name=name value=<?php echo $row['type_name'] ?>> <?php "</td>";
+            <form method="post" Action="../backend/modifyFeature.php">
+            <tr id=<?php echo $row['feature_id'] ?> > <?php
+            echo "<td>" ?> <input type=text name=name value=<?php echo $row['feature_name'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";
             echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>";
-            echo "<td>" ?> <input type=hidden name=id value=<?php echo $row['type_id'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=hidden name=id value=<?php echo $row['feature_id'] ?>> <?php "</td>";
             echo "</tr>"; ?>
             </form>
              <?php

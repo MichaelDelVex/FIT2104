@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="47079af6-aa87-46b2-b0f8-3f70a3316bde" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/findProperty.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/findProperty.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="47079af6-aa87-46b2-b0f8-3f70a3316bde" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +50,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="type" pinned="false" current-in-tab="true">
+      <file leaf-file-name="type" pinned="false" current-in-tab="false">
         <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/type">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="feature" pinned="false" current-in-tab="true">
+        <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/feature">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -188,12 +194,12 @@
       <workItem from="1538443729047" duration="10000" />
       <workItem from="1538446262665" duration="1426000" />
       <workItem from="1538451085496" duration="1905000" />
-      <workItem from="1538563879869" duration="6888000" />
+      <workItem from="1538563879869" duration="7485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23383000" />
+    <option name="totallyTimeSpent" value="23980000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -228,13 +234,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/9ed11ed5-b4a8-47b8-b9d1-e647c1291079/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="287" selection-start-column="287" selection-end-column="287" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/client">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -501,6 +500,13 @@
       </provider>
     </entry>
     <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/type">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/feature">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
