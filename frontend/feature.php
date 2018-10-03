@@ -60,7 +60,7 @@
 
 <p>
     <a href="../backend/showFeatureCode.html" target="_blank">
-        <img src="../code_images/property_feature.JPG" >
+        <img src="../code_images/feature.JPG.jpg" >
     </a>
 </p>
 
