@@ -37,8 +37,6 @@
         
         echo "<table border='1'>
         <tr>
-        <th>Property ID</th>
-        <th>Seller ID</th>
         <th>Property Type</th>
         <th>Street</th>
         <th>Suburb</th>
@@ -52,12 +50,20 @@
         
         while($row = mysqli_fetch_array($result))
         {
+            $propertyResult = mysqli_query($conn, "SELECT * FROM type");
             ?> 
-            <form method="post" Action="../backend/modifyProperty.php">
-            <tr id=<?php echo $row['property_id'] ?> > <?php
-            echo "<td>" ?> <input type=text name=id value=<?php echo $row['property_id'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=sellerid value=<?php echo $row['seller_id'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=type value=<?php echo $row['property_type'] ?>> <?php "</td>";
+            <form method="post" Action="../backend/modifyProperty.php"> 
+            <td>
+                <select name=property_type>
+                    <?php 
+                        while($propRow = mysqli_fetch_array($propertyResult)) {
+                            echo "<option value=$propRow[type_id] ".($propRow['type_id'] == $row['property_type'] ? "selected=selected" : "") ."> $propRow[type_name] </option>";
+                        }
+                    ?>
+                </select>
+            </td>
+            <?php
+            echo "</td>";
             echo "<td>" ?> <input type=text name=street value=<?php echo $row['property_street'] ?> style="max-width:40px"> <?php "</td>";
             echo "<td>" ?> <input type=text name=suburb value=<?php echo $row['property_suburb'] ?> style="max-width:40px"> <?php "</td>";
             echo "<td>" ?> <input type=text name=state value=<?php echo $row['property_state'] ?>> <?php "</td>";
