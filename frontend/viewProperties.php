@@ -45,7 +45,8 @@
         <th>List Price</th>
         <th>List Date</th>
         <th>Description</th>
-        <th>Image Path</th>
+        <th>Image File Name</th>
+        <th>Current Image</th>
         </tr>";
         
         while($row = mysqli_fetch_array($result))
@@ -54,7 +55,7 @@
             ?> 
             <form method="post" Action="../backend/modifyProperty.php"> 
             <td>
-                <select name=property_type>
+                <select name=type>
                     <?php 
                         while($propRow = mysqli_fetch_array($propertyResult)) {
                             echo "<option value=$propRow[type_id] ".($propRow['type_id'] == $row['property_type'] ? "selected=selected" : "") ."> $propRow[type_name] </option>";
@@ -64,19 +65,34 @@
             </td>
             <?php
             echo "</td>";
-            echo "<td>" ?> <input type=text name=street value=<?php echo $row['property_street'] ?> style="max-width:40px"> <?php "</td>";
-            echo "<td>" ?> <input type=text name=suburb value=<?php echo $row['property_suburb'] ?> style="max-width:40px"> <?php "</td>";
-            echo "<td>" ?> <input type=text name=state value=<?php echo $row['property_state'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=pc value=<?php echo $row['property_pc'] ?> style="max-width:40px"> <?php "</td>";
-            echo "<td>" ?> <input type=text name=listprice value=<?php echo $row['list_price'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=listdate value=<?php echo $row['list_date'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=desc value=<?php echo $row['desc'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=street value="<?php echo $row["property_street"] ?>"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=suburb value="<?php echo $row['property_suburb'] ?>"> <?php "</td>";
+
+            echo "<td>" ?> 
+                <select name="state">
+                    <option value="NSW"<?php $row['property_state'] == 'NSW' ? " selected='selected'" : '' ?>>NSW</option>
+                    <option value="NT"<?php $row['property_state'] == 'NT' ? " selected='selected'" : '' ?>>NT</option>
+                    <option value="QLD"<?php $row['property_state'] == 'QLD' ? " selected='selected'" : '' ?>>QLD</option>
+                    <option value="SA"<?php $row['property_state'] == 'SA' ? " selected='selected'" : '' ?>>SA</option>
+                    <option value="TAS"<?php $row['property_state'] == 'TAS' ? " selected='selected'" : '' ?>>TAS</option>
+                    <option value="VIC"<?php $row['property_state'] == 'VIC' ? " selected='selected'" : '' ?>>VIC</option>
+                    <option value="WA"<?php $row['property_state'] == 'WA' ? " selected='selected'" : '' ?>>WA</option>
+                </select> <?php 
+                "</td>";
+            echo "<td>" ?> <input type=text name=pc value=<?php echo $row['property_pc'] ?> style="max-width:70px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=listprice value=<?php echo $row['list_price'] ?> style="max-width:70px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=listdate value=<?php echo $row['list_date'] ?> style="max-width:70px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=desc value="<?php echo $row['desc'] ?>"> <?php "</td>";
             echo "<td>" ?> <input type=text name=imagename value=<?php echo $row['image_name'] ?>> <?php "</td>";
+            echo "<td>" ?> <img src="../property_images/<?php echo $row['image_name'] ?>.jpg" style="max-width:100px; max-height:100px;"> <?php "</td>";
             echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";
-            echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>";
+            echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>"; ?>
+            <td> <input type='hidden' name='property_id' value=<?php echo $row['property_id'] ?>> </td> <?php
             echo "</tr>"; ?>
             </form>
              <?php
+
+            echo $row['property_state'] == 'VIC' ? " selected=selected" : 'wrong';
         }
         echo "</table>";
         
