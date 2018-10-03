@@ -60,7 +60,7 @@
                 </select>
             </td>
             <td> <input type=text name=property_suburb > </td>
-            <td> <input type=submit value=Search name=Search> </td>;
+            <td> <input type=submit value=Search name=Search> </td>
         </tr>
     </form>
 
@@ -71,14 +71,11 @@ echo "</table>";
     mysqli_close($conn);
     ?>
 
-
-
-
 </div>
 
 
 <!-- FOOTER -->
-<div class="footer">
+<div class="footer" style="visibility:hidden;">
     <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
     <button class="tablinks" onclick="openTab(event, 'Property')">Property</button>
     <button class="tablinks" onclick="openTab(event, 'Client')">Client</button>
