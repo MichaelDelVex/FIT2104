@@ -3,15 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php
-    if(!empty($_COOKIE["loggedin"])) {
-        echo $_COOKIE["loggedin"];
-    }
-    else {
-        header("location:login.php");
 
-    }
-    ?>
 </head>
 <body>
 
@@ -24,16 +16,24 @@
     <h2>Add New Client</h2>
 
 
-    <form method="post" Action="modifyClient.php">
-        Given name* <input type="text" name="gname">
-        <br>
-        First name* <input type="text" name="fname">
-        <br>
-        Street* <input type="text" name="street">
-        <br>
-        Suburb* <input type="text" name="suburb">
-        <br>
-        State* <select name="state">
+
+    <form method="post" Action="../backend/modifyClient.php">
+        <table
+        <td  echo "</tr><?php
+            echo "<td style='width: 100px'>" ?> Given name* <?php "</td>";
+            echo "<td style='width: 50px'>" ?> <input type="text" name="gname"> <?php "</td>";
+            echo "</tr>"; ?><?php
+            echo "<td>" ?> First name* <?php "</td>";
+            echo "<td>" ?> <input type="text" name="fname"> <?php "</td>";
+            echo "</tr>"; ?><?php
+            echo "<td>" ?> Street* <?php "</td>";
+            echo "<td>" ?> <input type="text" name="street"> <?php "</td>";
+            echo "</tr>"; ?><?php
+            echo "<td>" ?> Suburb* <?php "</td>";
+            echo "<td>" ?> <input type="text" name="suburb"> <?php "</td>";
+            echo "</tr>"; ?><?php
+            echo "<td>" ?> State* <?php "</td>";
+            echo "<td>" ?> <select name="state">
             <option value="NSW">NSW</option>
             <option value="NT">NT</option>
             <option value="QLD">QLD</option>
@@ -41,22 +41,31 @@
             <option value="TAS">TAS</option>
             <option value="VIC" selected="selected">VIC</option>
             <option value="WA">WA</option>
-        </select>
-        <br>
-        Postcode* <input type="number" name="pc">
-        <br>
-        Email* <input type="text" name="email">
-        <br>
-        Mobile* <input type="text" name="mobile">
-        <br>
-        Mailig List* <select name="mailinglist">
+            </select> <?php "</td>";
+            echo "</tr>"; ?><?php
+            echo "<td>" ?> Postcode* <?php "</td>";
+            echo "<td>" ?> <input type="number" name="pc"> <?php "</td>";
+            echo "</tr>"; ?><?php
+            echo "<td>" ?> Email* <?php "</td>";
+            echo "<td>" ?> <input type="text" name="email"> <?php "</td>";
+            echo "</tr>"; ?><?php
+            echo "<td>" ?> Mobile* <?php "</td>";
+            echo "<td>" ?> <input type="number" name="mobile"> <?php "</td>";
+            echo "</tr>"; ?><?php
+            echo "<td>" ?> Mailing List* <?php "</td>";
+            echo "<td>" ?> <select name="mailinglist">
             <option value="Y">Y</option>
             <option value="N" selected="selected">N</option>
-        </select>
-        <br>
-        <input type=submit value="Create Client!" name=add>
+            </select> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> <?php "</td>";
+        echo "<td>" ?> <input type=submit value="Create Client!" name=add> <?php "</td>";
+        echo "</tr>"; ?>
 
+
+    </table>
     </form>
+
 </div>
 
 <?php

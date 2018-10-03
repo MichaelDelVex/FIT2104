@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <?php
     if(!empty($_COOKIE["loggedin"])) {
         echo $_COOKIE["loggedin"];
@@ -10,8 +11,6 @@
     else {
         header("location:../frontend/login.php");
 
-    }
-    ?>
 </head>
 <body>
 
@@ -24,21 +23,29 @@
     <h2>Add New Property</h2>
 
 
-    <form method="post" Action="modifyProperty.php">
-        Seller Mobile Number* (Please enter an existing number): <input type="text" name="mobile">
-        <br>
-        Property Type <select name="type">
+    <form method="post" Action="../backend/modifyProperty.php">
+        <table
+        <td  echo "</tr><?php
+        echo "<td style='width: 150px'>" ?> Seller mobile number (please enter an exisiting number) <?php "</td>";
+        echo "<td style='width: 100px'>" ?> <input type="number" name="mobile"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Property type* <?php "</td>";
+        echo "<td>" ?> <select name="type">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-        </select>
-        Property Street* <input type="text" name="street">
-        <br>
-        Suburb* <input type="text" name="suburb">
-        <br>
-        State* <select name="state">
+        </select> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Street* <?php "</td>";
+        echo "<td>" ?> <input type="text" name="street"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Suburb <?php "</td>";
+        echo "<td>" ?> <input type="text" name="suburb"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> State <?php "</td>";
+        echo "<td>" ?> <select name="state">
             <option value="NSW">NSW</option>
             <option value="NT">NT</option>
             <option value="QLD">QLD</option>
@@ -46,23 +53,35 @@
             <option value="TAS">TAS</option>
             <option value="VIC" selected="selected">VIC</option>
             <option value="WA">WA</option>
-        </select>
-        <br>
-        Postcode* <input type="number" name="pc">
-        <br>
-        Listing Price* <input type="text" name="listprice">
-        <br>
-        Listing Date ( YYYY / MM / DD ) <input type="text" name="listdate">
-        <br>
-        Sale Date ( YYYY / MM / DD ) <input type="text" name="saledate">
-        <br>
-        Description <input type="text" name="desc">
-        <br>
-        Image Name <input type="text" name="imagename">
-        <br>
-        <input type=submit value="Create Property!" name=add>
+        </select> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Postcode* <?php "</td>";
+        echo "<td>" ?> <input type="number" name="pc"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Listing price* <?php "</td>";
+        echo "<td>" ?> <input type="number" name="listprice"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Listing price* <?php "</td>";
+        echo "<td>" ?> <input type="date" name="listdate"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Sale date <?php "</td>";
+        echo "<td>" ?> <input type="date" name="saledate"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Description <?php "</td>";
+        echo "<td>" ?> <input type="text" name="desc"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> Image name <?php "</td>";
+        echo "<td>" ?> <input type="text" name="imagename"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> <?php "</td>";
+        echo "<td>" ?> <input type=submit value="Create Property!" name=add> <?php "</td>";
+        echo "</tr>"; ?>
 
+
+        </table>
     </form>
+
+
 </div>
 
 <?php
