@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<form action="email.php" method="post">
+<form action="../backend/email.php" method="post">
     <p>Enter the </p>
     Subject: <input type="text" name="subject"><br>
     Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>

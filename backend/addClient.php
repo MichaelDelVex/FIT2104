@@ -3,6 +3,15 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:login.php");
+
+    }
+    ?>
 </head>
 <body>
 
@@ -16,15 +25,15 @@
 
 
     <form method="post" Action="modifyClient.php">
-        Given name <input type="text" name="gname">
+        Given name* <input type="text" name="gname">
         <br>
-        First name <input type="text" name="fname">
+        First name* <input type="text" name="fname">
         <br>
-        Street <input type="text" name="street">
+        Street* <input type="text" name="street">
         <br>
-        Suburb <input type="text" name="suburb">
+        Suburb* <input type="text" name="suburb">
         <br>
-        State <select name="state">
+        State* <select name="state">
             <option value="NSW">NSW</option>
             <option value="NT">NT</option>
             <option value="QLD">QLD</option>
@@ -34,13 +43,13 @@
             <option value="WA">WA</option>
         </select>
         <br>
-        Postcode <input type="number" name="pc">
+        Postcode* <input type="number" name="pc">
         <br>
-        Email <input type="text" name="email">
+        Email* <input type="text" name="email">
         <br>
-        Mobile <input type="text" name="mobile">
+        Mobile* <input type="text" name="mobile">
         <br>
-        Mailig List? <select name="mailinglist">
+        Mailig List* <select name="mailinglist">
             <option value="Y">Y</option>
             <option value="N" selected="selected">N</option>
         </select>

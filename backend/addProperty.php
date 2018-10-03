@@ -3,6 +3,15 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:login.php");
+
+    }
+    ?>
 </head>
 <body>
 
@@ -16,7 +25,7 @@
 
 
     <form method="post" Action="modifyProperty.php">
-        Seller Mobile Number: <input type="text" name="mobile">
+        Seller Mobile Number* (Please enter an existing number): <input type="text" name="mobile">
         <br>
         Property Type <select name="type">
             <option value="1">1</option>
@@ -25,11 +34,11 @@
             <option value="4">4</option>
             <option value="5">5</option>
         </select>
-        Property Street <input type="text" name="street">
+        Property Street* <input type="text" name="street">
         <br>
-        Suburb <input type="text" name="suburb">
+        Suburb* <input type="text" name="suburb">
         <br>
-        State <select name="state">
+        State* <select name="state">
             <option value="NSW">NSW</option>
             <option value="NT">NT</option>
             <option value="QLD">QLD</option>
@@ -39,13 +48,13 @@
             <option value="WA">WA</option>
         </select>
         <br>
-        Postcode <input type="number" name="pc">
+        Postcode* <input type="number" name="pc">
         <br>
-        Listing Price <input type="text" name="listprice">
+        Listing Price* <input type="text" name="listprice">
         <br>
-        Listing Date <input type="text" name="listdate">
+        Listing Date ( YYYY / MM / DD ) <input type="text" name="listdate">
         <br>
-        Sale Date <input type="text" name="saledate">
+        Sale Date ( YYYY / MM / DD ) <input type="text" name="saledate">
         <br>
         Description <input type="text" name="desc">
         <br>

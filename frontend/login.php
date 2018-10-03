@@ -64,7 +64,13 @@ else
     }
     else
     {
-        echo "Sorry, login details incorrect";
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Incorrect login details, please try again');
+    window.location.href='../frontend/login.php';
+    </script>");
+
+
+
     }
 }
 ?>

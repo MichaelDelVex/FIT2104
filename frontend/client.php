@@ -9,6 +9,7 @@
     }
     else {
         header("location:login.php");
+
     }
     ?>
 
@@ -19,19 +20,11 @@
 
 <?php include_once('../backend/menu.php'); ?>
 
-    
-<!-- CLIENT PAGE -->
-<div id="Home" class="tabcontent">
-  <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-  <h2>Client</h2>
-    <button type="button" onclick="">View</button>
-    <button type="button" onclick="">Add</button> 
-    <button type="button" onclick="">Edit</button> 
-    <button type="button" onclick="">Delete</button> 
-    
-    <h3>View clients</h3>
-    
-</div>
+
+
+<form action=../frontend/form-page.php>
+    <input type="submit" value="Email mailing list" />
+</form>
 
     <?php 
         include("../backend/connection.php");

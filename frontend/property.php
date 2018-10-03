@@ -9,6 +9,7 @@
     }
     else {
         header("location:login.php");
+
     }
     ?>
 
@@ -27,7 +28,7 @@
     <h3>Property</h3>
 
     <?php
-    echo $_COOKIE["fontface"];
+
     include("../backend/connection.php");
     //use the variable names in the include file
     $conn = new mysqli($host, $username, $password, $database);

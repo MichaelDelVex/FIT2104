@@ -19,7 +19,10 @@ $query=  "SELECT client_email FROM client WHERE client_mailinglist like 'Y' ";
     while($row = mysqli_fetch_array($to)){
         if(mail($row['client_email'], $subject, $msg, $from))
         {
-            echo "Mail Sent";
+            echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Mail sent');
+    window.location.href='../frontend/client.php';
+    </script>");
         }
         else {
             echo "Error Sending Mail";
