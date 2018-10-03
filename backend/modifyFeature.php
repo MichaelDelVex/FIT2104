@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Modify and View Types</title>
+<title>Modify and View feature</title>
 </head>
 <body>
 <?php
@@ -16,8 +16,8 @@ if (isset($_POST['delete'])) {
 
     if (mysqli_query($conn, $query)) {
           echo ("<script LANGUAGE='JavaScript'>
-    window.alert('type deleted');
-    window.location.href='../frontend/type.php';
+    window.alert('feature deleted');
+    window.location.href='../frontend/feature.php';
     </script>");
 
         
@@ -32,8 +32,8 @@ if (isset($_POST['delete'])) {
 
     if (mysqli_query($conn, $query)) {
           echo ("<script LANGUAGE='JavaScript'>
-    window.alert('Type updated');
-    window.location.href='../frontend/type.php';
+    window.alert('feature updated');
+    window.location.href='../frontend/feature.php';
     </script>");
 
         
@@ -45,8 +45,8 @@ if (isset($_POST['delete'])) {
 
   if(empty($_POST['name'])){
     echo ("<script LANGUAGE='JavaScript'>
-    window.alert('Please insert a type');
-    window.location.href='../backend/addType.php';
+    window.alert('Please insert a feature');
+    window.location.href='../backend/addfeature.php';
     </script>");
     }
     else{
@@ -58,11 +58,11 @@ if (isset($_POST['delete'])) {
 
     if (mysqli_query($conn, $query)) {
         echo ("<script LANGUAGE='JavaScript'>
-    window.alert('type added');
-    window.location.href='../frontend/type.php';
+    window.alert('feature added');
+    window.location.href='../frontend/feature.php';
     </script>");
     } else {
-        echo "Error Creating type: " . mysqli_error($conn); 
+        echo "Error Creating feature: " . mysqli_error($conn); 
     }
     }
 } 

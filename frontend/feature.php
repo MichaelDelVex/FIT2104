@@ -44,7 +44,7 @@
             ?> 
             <form method="post" Action="../backend/modifyFeature.php">
             <tr id=<?php echo $row['feature_id'] ?> > <?php
-            echo "<td>" ?> <input type=text name=name value=<?php echo $row['feature_name'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=name value="<?php echo $row['feature_name'] ?>"> <?php "</td>";
             echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";
             echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>";
             echo "<td>" ?> <input type=hidden name=id value=<?php echo $row['feature_id'] ?>> <?php "</td>";
