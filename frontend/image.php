@@ -34,16 +34,20 @@
 
         $result = mysqli_query($conn, "SELECT * FROM property WHERE image_name ='". $imageName. "';");
         $row = mysqli_fetch_array($result);
-        echo $imageName;
+
+        $prop = $row['property_street'] == '' ? "No Property associated with this image" : $row['property_street'];
+
         ?>
 
 
-        <form>
+        <form method="post" action="../backend/modifyImage.php">
             <table>
         <tr>
-            <td> <?php echo '<img src="'.$image.'" style="max-width:100px; min-width:100px;"/><br />'; ?> </td>
-            <td> <?php echo $row['property_street']; ?> </td>
-            <td> <?php echo '<input type=submit value="Delete" name=add>' ?> </td>
+            <td> <?php echo '<img src="'.$image.'" style="max-width:400px; max-height:400px;"><br />'; ?> </td>
+            <td> <?php echo $prop; ?> </td>
+            <td> <?php echo '<input type=submit value="Delete" name=delete>' ?> </td>
+            <td> <?php echo '<input type=hidden value='.$imageName.' name=imgname>' ?> </td>
+            <td> <?php echo '<input type=hidden value='.$image.' name=imgpath>' ?> </td
 
         </tr>
             </table>
