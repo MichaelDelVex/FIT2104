@@ -15,7 +15,10 @@ if (isset($_POST['delete'])) {
     $query="DELETE FROM property WHERE property_id LIKE $_POST[id]";
 
     if (mysqli_query($conn, $query)) {
-        echo "Record deleted successfully";
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Property deleted');
+    window.location.href='../frontend/property.php';
+    </script>");
         
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
@@ -32,8 +35,12 @@ if (isset($_POST['delete'])) {
     echo $query; ?> <br> <?php
 
     if (mysqli_query($conn, $query)) {
-        echo "Record updated successfully";
-        
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Property updated');
+    window.location.href='../frontend/property.php';
+    </script>");
+
+
     } else {
         echo "Error updating record: " . mysqli_error($conn);
     }
@@ -49,7 +56,11 @@ if (isset($_POST['delete'])) {
     echo $queryAddProperty; ?> <br> <?php
 
     if (mysqli_query($conn, $queryAddProperty) ) {
-        echo "Property Sucessfully Created";
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Property added');
+    window.location.href='../frontend/property.php';
+    </script>");
+
     } else {
         echo "Error Creating Property: " . mysqli_error($conn); 
     }

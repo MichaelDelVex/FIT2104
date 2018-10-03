@@ -15,7 +15,10 @@ if (isset($_POST['delete'])) {
     $query="DELETE FROM client WHERE client_id LIKE $_POST[id]";
 
     if (mysqli_query($conn, $query)) {
-        echo "Record deleted successfully";
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Client deleted');
+    window.location.href='../frontend/client.php';
+    </script>");
         
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
@@ -30,7 +33,10 @@ if (isset($_POST['delete'])) {
     WHERE client_id LIKE $_POST[id];";
 
     if (mysqli_query($conn, $query)) {
-        echo "Record updated successfully";
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Client updated');
+    window.location.href='../frontend/client.php';
+    </script>");
         
     } else {
         echo "Error updating record: " . mysqli_error($conn);
@@ -50,7 +56,10 @@ if (isset($_POST['delete'])) {
     VALUES ('$_POST[gname]', '$_POST[fname]', '$_POST[street]', '$_POST[state]', '$_POST[suburb]', '$_POST[pc]', '$_POST[email]', '$_POST[mobile]', '$_POST[mailinglist]');";
 
     if (mysqli_query($conn, $query)) {
-        echo "Client Sucessfully Created";
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Client added');
+    window.location.href='../frontend/client.php';
+    </script>");
     } else {
         echo "Error Creating Client: " . mysqli_error($conn); 
     }

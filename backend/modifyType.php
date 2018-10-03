@@ -15,7 +15,11 @@ if (isset($_POST['delete'])) {
     $query="DELETE FROM type WHERE type_id LIKE $_POST[id]";
 
     if (mysqli_query($conn, $query)) {
-        echo "Record deleted successfully";
+          echo ("<script LANGUAGE='JavaScript'>
+    window.alert('type deleted');
+    window.location.href='../frontend/type.php';
+    </script>");
+
         
     } else {
         echo "Error deleting record: " . mysqli_error($conn);
@@ -27,7 +31,11 @@ if (isset($_POST['delete'])) {
     WHERE type_id LIKE $_POST[id];";
 
     if (mysqli_query($conn, $query)) {
-        echo "Record updated successfully";
+          echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Type updated');
+    window.location.href='../frontend/type.php';
+    </script>");
+
         
     } else {
         echo "Error updating record: " . mysqli_error($conn);
@@ -49,7 +57,10 @@ if (isset($_POST['delete'])) {
 
 
     if (mysqli_query($conn, $query)) {
-        echo "Type Sucessfully Created";
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('type added');
+    window.location.href='../frontend/type.php';
+    </script>");
     } else {
         echo "Error Creating type: " . mysqli_error($conn); 
     }
