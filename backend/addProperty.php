@@ -8,9 +8,9 @@
     if(!empty($_COOKIE["loggedin"])) {
         echo $_COOKIE["loggedin"];
     }
-    else {
+    else
         header("location:../frontend/login.php");
-
+?>
 </head>
 <body>
 
