@@ -1,13 +1,22 @@
 <xmp>
-    //PROPERTY FRONT END
-
     <!DOCTYPE html>
     <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:../frontend/login.php");
+
+    }
+    ?>
+
     </head>
     <body>
+
 
     <h2>Ruthless Real Estate</h2>
 
@@ -20,6 +29,7 @@
         <h3>Property</h3>
 
         <?php
+
     include("../backend/connection.php");
     //use the variable names in the include file
     $conn = new mysqli($host, $username, $password, $database);
@@ -96,16 +106,29 @@ echo "</table>";
         document.getElementById("defaultOpen").click();
     </script>
 
+    <p>
+        <a href="../backend/showPropertyCode.html" target="_blank">
+            <img src="../code_images/property.JPG" >
+        </a>
+    </p>
+
     </body>
     </html>
-
-    //PROPERTY BACK END
-
+</xmp>
+<xmp>
     <!DOCTYPE html>
     <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else
+        header("location:../frontend/login.php");
+?>
     </head>
     <body>
 
@@ -118,21 +141,37 @@ echo "</table>";
         <h2>Add New Property</h2>
 
 
-        <form method="post" Action="modifyProperty.php">
-            Seller Mobile Number: <input type="text" name="mobile">
-            <br>
-            Property Type <select name="type">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-            Property Street <input type="text" name="street">
-            <br>
-            Suburb <input type="text" name="suburb">
-            <br>
-            State <select name="state">
+        <form method="post" Action="../backend/modifyProperty.php">
+            <table
+            <td  echo "</tr><?php
+        echo "<td style='width: 150px'>" ?> Seller mobile number (please enter an exisiting number) <?php "</td>";
+            echo "<td style='width: 100px'>" ?> <input type="number" name="mobile"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Property type* <?php "</td>";
+            echo "<td>"
+            ?>
+            <select name=type>
+                <?php
+                        include("../backend/connection.php");
+                        $conn = new mysqli($host, $username, $password, $database);
+                        $propertyResult = mysqli_query($conn, "SELECT * FROM type");
+                        while($propRow = mysqli_fetch_array($propertyResult)) {
+                            echo "<option value=$propRow[type_id]> $propRow[type_name] </option>";
+                }
+                ?>
+            </select>
+            <?php
+
+        echo "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Street* <?php "</td>";
+            echo "<td>" ?> <input type="text" name="street"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Suburb <?php "</td>";
+            echo "<td>" ?> <input type="text" name="suburb"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> State <?php "</td>";
+            echo "<td>" ?> <select name="state">
             <option value="NSW">NSW</option>
             <option value="NT">NT</option>
             <option value="QLD">QLD</option>
@@ -140,23 +179,35 @@ echo "</table>";
             <option value="TAS">TAS</option>
             <option value="VIC" selected="selected">VIC</option>
             <option value="WA">WA</option>
-        </select>
-            <br>
-            Postcode <input type="number" name="pc">
-            <br>
-            Listing Price <input type="text" name="listprice">
-            <br>
-            Listing Date <input type="text" name="listdate">
-            <br>
-            Sale Date <input type="text" name="saledate">
-            <br>
-            Description <input type="text" name="desc">
-            <br>
-            Image Name <input type="text" name="imagename">
-            <br>
-            <input type=submit value="Create Property!" name=add>
+        </select> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Postcode* <?php "</td>";
+            echo "<td>" ?> <input type="number" name="pc"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Listing price* <?php "</td>";
+            echo "<td>" ?> <input type="number" name="listprice"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Listing price* <?php "</td>";
+            echo "<td>" ?> <input type="date" name="listdate"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Sale date <?php "</td>";
+            echo "<td>" ?> <input type="date" name="saledate"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Description <?php "</td>";
+            echo "<td>" ?> <input type="text" name="desc"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> Image name <?php "</td>";
+            echo "<td>" ?> <input type="text" name="imagename"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> <?php "</td>";
+            echo "<td>" ?> <input type=submit value="Create Property!" name=add> <?php "</td>";
+            echo "</tr>"; ?>
 
+
+            </table>
         </form>
+
+
     </div>
 
     <?php
@@ -204,13 +255,11 @@ $result = mysqli_query($conn,"SELECT * FROM client");
     </script>
 
     </html>
-
-
-    //PROPERTY SEARCH BAR
-
+</xmp>
+<xmp>
     <html>
     <head>
-        <title>Modify and View Clients</title>
+        <title>Modify and View Properties</title>
     </head>
     <body>
     <?php
@@ -221,39 +270,71 @@ $conn = new mysqli($host, $username, $password, $database);
 
     <?php
 
-if (isset($_POST['Search'])) {
+if (isset($_POST['delete'])) {
+    $query="DELETE FROM property WHERE property_id LIKE $_POST[property_id]";
 
-    if(!empty($_POST['property_type']) && !empty($_POST['property_suburb'])){
-        $query = "SELECT * FROM property WHERE property_type LIKE $_POST[property_type] AND property_suburb LIKE '%$_POST[property_suburb]%'";
-    } else if(!empty($_POST['property_type'])) {
-        $query = "SELECT * FROM property WHERE property_type LIKE '$_POST[property_type]'";
-    } else if(!empty($_POST['property_suburb'])) {
-        $query = "SELECT * FROM property WHERE property_suburb LIKE '%$_POST[property_suburb]%'";
+    if (mysqli_query($conn, $query)) {
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Property deleted');
+    window.location.href='../frontend/viewProperties.php'
+    </script>");
+
     } else {
-        $query = "";
+        echo "Error deleting record: " . mysqli_error($conn);
     }
 
-    $result = mysqli_query($conn, $query);
-    while ($row = mysqli_fetch_array($result)) { ?>
-    <form method="post" Action="../backend/findProperty.php">
-        <tr id=<?php echo $row['property_id'] ?>> <?php
-                echo "<td>" ?> <input type=text name=id value=<?php echo $row['property_id'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=seller_id value=<?php echo $row['seller_id'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=property_type value=<?php echo $row['property_type'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=property_street value=<?php echo $row['property_street'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=property_suburb value=<?php echo $row['property_suburb'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=property_state value=<?php echo $row['property_street'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=property_pc value=<?php echo $row['property_pc'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=list_price value=<?php echo $row['list_price'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=list_date value=<?php echo $row['list_date'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=sale_date value=<?php echo $row['sale_date'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=desc value=<?php echo $row['desc'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=image_name value=<?php echo $row['image_name'] ?>> <?php "</td>";
-        echo "</tr>"; ?>
-    </form> <?php
-    }
-} else {
-        echo "Error finding data" ;
-}
+    } else if (isset($_POST['update'])) {
 
+        $query=" UPDATE property SET property_type = '$_POST[type]', property_street = '$_POST[street]'
+            , property_suburb = '$_POST[suburb]', property_state = '$_POST[state]', property_pc = '$_POST[pc]'
+            , list_price = '$_POST[listprice]', list_date = '$_POST[listdate]'
+            , `desc` = '$_POST[desc]', image_name = '$_POST[imagename]'
+        WHERE property_id LIKE $_POST[property_id];";
+
+        echo $query; ?> <br> <?php
+
+        if (mysqli_query($conn, $query)) {
+            echo ("<script LANGUAGE='JavaScript'>
+            window.alert('Property updated');
+            window.location.href='../frontend/viewProperties.php';
+    </script>");
+
+
+    } else {
+    echo "Error updating record: " . mysqli_error($conn);
+    }
+
+    } else if (isset($_POST['add'])) {
+
+    if(empty($_POST['type'])|| empty($_POST['street']) || empty($_POST['suburb']) || empty($_POST['state']) || empty($_POST['pc']) || empty($_POST['listprice'])  ){
+    echo ("<script LANGUAGE='JavaScript'>
+        window.alert('Please insert data where fields have *');
+        window.location.href='../backend/addProperty.php';
+    </script>");
+    return;
+    }
+
+    $result = mysqli_query($conn, "SELECT client_id FROM client WHERE client_mobile LIKE '$_POST[mobile]'");
+    $row = mysqli_fetch_array($result);
+
+    $queryAddProperty=" INSERT INTO property (seller_id, property_type, property_street, property_suburb, property_state, property_pc, list_price, list_date, `desc`, image_name) /*VALIDATION - THIS INSERT STATEMENT SHOULD NO APPEAR AFTER ADDING A PROPERTY*/
+    VALUES ('$row[client_id]', '$_POST[type]', '$_POST[street]', '$_POST[suburb]', '$_POST[state]', '$_POST[pc]', '$_POST[listprice]', '$_POST[listdate]', '$_POST[desc]', '$_POST[imagename]');";
+
+    echo $queryAddProperty; ?> <br> <?php
+
+    if (mysqli_query($conn, $queryAddProperty) ) {
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Property added');
+    window.location.href='../frontend/viewProperties.php'
+    </script>");
+
+    } else {
+        echo "Error Creating Property: " . mysqli_error($conn);
+    }
+    }
+
+        ?>
+
+    </body>
+    </html>
 </xmp>

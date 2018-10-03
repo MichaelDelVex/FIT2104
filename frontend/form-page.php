@@ -32,7 +32,7 @@
 <?php include_once('../backend/menu.php'); ?>
 
 <form action="../backend/email.php" method="post">
-    <p>Enter the </p>
+    <p></p>
     Subject: <input type="text" name="subject"><br>
     Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
     <input type="submit" name="submit" value="Submit">

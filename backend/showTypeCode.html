@@ -1,11 +1,19 @@
 <xmp>
-    //FOR FRONTEND TYPE
-
     <!DOCTYPE html>
     <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:../frontend/login.php");
+
+    }
+    ?>
     </head>
     <body>
 
@@ -15,6 +23,7 @@
 
 
     <?php
+
         include("../backend/connection.php");
         //use the variable names in the include file
         $conn = new mysqli($host, $username, $password, $database);
@@ -28,7 +37,6 @@
 
         echo "<table border='1'>
     <tr>
-        <th>Type ID</th>
         <th>Type Description</th>
     </tr>";
 
@@ -37,10 +45,10 @@
     ?>
     <form method="post" Action="../backend/modifyType.php">
         <tr id=<?php echo $row['type_id'] ?> > <?php
-            echo "<td>" ?> <input type=text name=id value=<?php echo $row['type_id'] ?>> <?php "</td>";
-        echo "<td>" ?> <input type=text name=name value=<?php echo $row['type_name'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=name value=<?php echo $row['type_name'] ?>> <?php "</td>";
         echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";
         echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>";
+        echo "<td>" ?> <input type=hidden name=id value=<?php echo $row['type_id'] ?>> <?php "</td>";
         echo "</tr>"; ?>
     </form>
     <?php
@@ -51,18 +59,32 @@
 
     ?>
 
+    <p>
+        <a href="../backend/showTypeCode.html" target="_blank">
+            <img src="../code_images/type.jpg" >
+        </a>
+    </p>
+
+
     </body>
+
     </html>
 </xmp>
-
 <xmp>
-    //FOR BACKEND TYPE
-
     <!DOCTYPE html>
     <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <?php
+    if(!empty($_COOKIE["loggedin"])) {
+        echo $_COOKIE["loggedin"];
+    }
+    else {
+        header("location:../frontend/login.php");
+
+    }
+    ?>
     </head>
     <body>
 
@@ -75,11 +97,20 @@
         <h2>Add New Type</h2>
 
 
-        <form method="post" Action="modifyType.php">
-            Type Name <input type="text" name="name">
-            <br>
-            <input type=submit value="Create Type!" name=add>
+        <form method="post" Action="../backend/modifyType.php">
+            <table
+            <td  echo "</tr><?php
+        echo "<td style='width: 50px'>" ?> Type name* <?php "</td>";
+            echo "<td style='width: 100px'>" ?> <input type="text" name="name"> <?php "</td>";
+            echo "</tr>"; ?><?php
+        echo "<td>" ?> <?php "</td>";
+            echo "<td>" ?> <input type=submit value="Create Type" name=add> <?php "</td>";
+            echo "</tr>"; ?>
+
+
+            </table>
         </form>
+
     </div>
 
     <?php
@@ -93,6 +124,7 @@ if (mysqli_connect_errno())
 }
 
 $result = mysqli_query($conn,"SELECT * FROM type");
+
 
 
 ?>
@@ -126,5 +158,80 @@ $result = mysqli_query($conn,"SELECT * FROM type");
         document.getElementById("defaultOpen").click();
     </script>
 
+    </html>
+</xmp>
+<xmp>
+    <html>
+    <head>
+        <title>Modify and View Types</title>
+    </head>
+    <body>
+    <?php
+include("connection.php");
+//use the variable names in the include file
+$conn = new mysqli($host, $username, $password, $database);
+?>
+
+    <?php
+
+if (isset($_POST['delete'])) {
+    $query="DELETE FROM type WHERE type_id LIKE $_POST[id]";
+
+    if (mysqli_query($conn, $query)) {
+          echo ("<script LANGUAGE='JavaScript'>
+    window.alert('type deleted');
+    window.location.href='../frontend/type.php';
+    </script>");
+
+
+    } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+    }
+
+    } else if (isset($_POST['update'])) {
+
+        $query=" UPDATE type SET type_name = '$_POST[name]'
+        WHERE type_id LIKE $_POST[id];";
+
+        if (mysqli_query($conn, $query)) {
+            echo ("<script LANGUAGE='JavaScript'>
+            window.alert('Type updated');
+            window.location.href='../frontend/type.php';
+    </script>");
+
+
+    } else {
+    echo "Error updating record: " . mysqli_error($conn);
+    }
+
+    } else if (isset($_POST['add'])) {
+
+    if(empty($_POST['name'])){
+    echo ("<script LANGUAGE='JavaScript'>
+        window.alert('Please insert a type');
+        window.location.href='../backend/addType.php';
+    </script>");
+    }
+    else{
+
+    $query=" INSERT INTO type (type_name)
+    VALUES ('$_POST[name]');";
+
+
+
+    if (mysqli_query($conn, $query)) {
+    echo ("<script LANGUAGE='JavaScript'>
+        window.alert('type added');
+        window.location.href='../frontend/type.php';
+    </script>");
+    } else {
+    echo "Error Creating type: " . mysqli_error($conn);
+    }
+    }
+    }
+
+    ?>
+
+    </body>
     </html>
 </xmp>
