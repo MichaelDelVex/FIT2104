@@ -35,13 +35,24 @@ if (isset($_POST['delete'])) {
 
 } else if (isset($_POST['add'])) {
 
+  if(empty($_POST['name'])){
+    echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Please insert a type');
+    window.location.href='../backend/addType.php';
+    </script>");
+    }
+    else{
+
     $query=" INSERT INTO type (type_name)
     VALUES ('$_POST[name]');";
+
+
 
     if (mysqli_query($conn, $query)) {
         echo "Type Sucessfully Created";
     } else {
         echo "Error Creating type: " . mysqli_error($conn); 
+    }
     }
 } 
 

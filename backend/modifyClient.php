@@ -38,6 +38,14 @@ if (isset($_POST['delete'])) {
 
 } else if (isset($_POST['add'])) {
 
+    if(empty($_POST['gname']) || empty($_POST['gname']) || empty($_POST['street']) || empty($_POST['suburb']) || empty($_POST['state']) || empty($_POST['pc']) || empty($_POST['mobile'])  ){
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Please insert data where fields have *');
+    window.location.href='../backend/addClient.php';
+    </script>");
+        return;
+    }
+
     $query=" INSERT INTO client (client_gname, client_fname, client_street, client_state, client_suburb, client_pc, client_email, client_mobile, client_mailinglist)
     VALUES ('$_POST[gname]', '$_POST[fname]', '$_POST[street]', '$_POST[state]', '$_POST[suburb]', '$_POST[pc]', '$_POST[email]', '$_POST[mobile]', '$_POST[mailinglist]');";
 

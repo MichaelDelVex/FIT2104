@@ -35,6 +35,7 @@ if (mysqli_connect_errno())
 $result = mysqli_query($conn,"SELECT * FROM type");
 
 
+
 ?>
 </body>
 

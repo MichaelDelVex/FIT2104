@@ -20,7 +20,12 @@ if (isset($_POST['Search'])) {
     } else if(!empty($_POST['property_suburb'])) {
         $query = "SELECT * FROM property WHERE property_suburb LIKE '%$_POST[property_suburb]%'";
     } else {
-        $query = "";
+
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Please insert a property type and/or suburb');
+    window.location.href='../frontend/property.php';
+    </script>");
+        return;
     }
 
     $result = mysqli_query($conn, $query);

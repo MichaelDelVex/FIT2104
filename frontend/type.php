@@ -10,6 +10,7 @@
     }
     else {
         header("location:login.php");
+
     }
     ?>
 </head>
@@ -44,7 +45,7 @@
             ?> 
             <form method="post" Action="../backend/modifyType.php">
             <tr id=<?php echo $row['type_id'] ?> > <?php
-            echo "<td>" ?> <input type=text name=id value=<?php echo $row['type_id'] ?>> <?php "</td>";
+            echo "<td>" ?> <input type=text name=id value=<?php echo $row['type_id'] ?>> <?php "</td>"; /* VALIDATION - SHOULD NO BE ABLE TO ALTER TYPE ID */
             echo "<td>" ?> <input type=text name=name value=<?php echo $row['type_name'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";
             echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>";

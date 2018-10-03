@@ -38,12 +38,12 @@ if (isset($_POST['delete'])) {
         echo "Error updating record: " . mysqli_error($conn);
     }
 
-} else if (isset($_POST['add'])) {
+} else if (isset($_POST['add'])) { /* VALIDATION - SHOULD NOT BE ABLE TO ADD A PROPERTY WITH NO DATA */
 
     $result = mysqli_query($conn, "SELECT client_id FROM client WHERE client_mobile LIKE '$_POST[mobile]'");
     $row = mysqli_fetch_array($result);
 
-    $queryAddProperty=" INSERT INTO property (seller_id, property_type, property_street, property_suburb, property_state, property_pc, list_price, list_date, `desc`, image_name)
+    $queryAddProperty=" INSERT INTO property (seller_id, property_type, property_street, property_suburb, property_state, property_pc, list_price, list_date, `desc`, image_name) /*VALIDATION - THIS INSERT STATEMENT SHOULD NO APPEAR AFTER ADDING A PROPERTY*/
     VALUES ('$row[client_id]', '$_POST[type]', '$_POST[street]', '$_POST[suburb]', '$_POST[state]', '$_POST[pc]', '$_POST[listprice]', '$_POST[listdate]', '$_POST[desc]', '$_POST[imagename]');";
 
     echo $queryAddProperty; ?> <br> <?php
