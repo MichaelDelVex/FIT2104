@@ -12,7 +12,7 @@ $conn = new mysqli($host, $username, $password, $database);
 <?php 
 
 if (isset($_POST['delete'])) {
-    $query="DELETE FROM property WHERE property_id LIKE $_POST[id]";
+    $query="DELETE FROM property WHERE property_id LIKE $_POST[property_id]";
 
     if (mysqli_query($conn, $query)) {
         echo "Record deleted successfully";
@@ -26,8 +26,8 @@ if (isset($_POST['delete'])) {
     $query=" UPDATE property SET property_type = '$_POST[type]', property_street = '$_POST[street]'
     , property_suburb = '$_POST[suburb]', property_state = '$_POST[state]', property_pc = '$_POST[pc]'
     , list_price = '$_POST[listprice]', list_date = '$_POST[listdate]' 
-    , sale_date = '$_POST[saledate]', `desc` = '$_POST[desc]', image_name = '$_POST[imagename]'
-    WHERE property_id LIKE $_POST[id];";
+    , `desc` = '$_POST[desc]', image_name = '$_POST[imagename]'
+    WHERE property_id LIKE $_POST[property_id];";
 
     echo $query; ?> <br> <?php
 
