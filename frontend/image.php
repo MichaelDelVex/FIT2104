@@ -35,12 +35,20 @@
         $result = mysqli_query($conn, "SELECT * FROM property WHERE image_name ='". $imageName. "';");
         $row = mysqli_fetch_array($result);
         echo $imageName;
-        ?> 
-        
+        ?>
+
+
+        <form>
+            <table>
         <tr>
             <td> <?php echo '<img src="'.$image.'" style="max-width:100px; min-width:100px;"/><br />'; ?> </td>
             <td> <?php echo $row['property_street']; ?> </td>
-        </tr> <?php
+            <td> <?php echo '<input type=submit value="Delete" name=add>' ?> </td>
+
+        </tr>
+            </table>
+        </form>
+            <?php
         }
 ?>
 </body>
