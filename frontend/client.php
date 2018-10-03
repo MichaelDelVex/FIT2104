@@ -20,12 +20,6 @@
 
 <?php include_once('../backend/menu.php'); ?>
 
-
-
-<form action=../frontend/form-page.php>
-    <input type="submit" value="Email mailing list" />
-</form>
-
     <?php 
         include("../backend/connection.php");
         //use the variable names in the include file
