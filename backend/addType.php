@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 
@@ -15,11 +16,20 @@
     <h2>Add New Type</h2>
 
 
-    <form method="post" Action="modifyType.php">
-        Type Name <input type="text" name="name">
-        <br>
-        <input type=submit value="Create Type!" name=add>
+    <form method="post" Action="../backend/modifyType.php">
+        <table
+        <td  echo "</tr><?php
+        echo "<td style='width: 50px'>" ?> Type name* <?php "</td>";
+        echo "<td style='width: 100px'>" ?> <input type="text" name="name"> <?php "</td>";
+        echo "</tr>"; ?><?php
+        echo "<td>" ?> <?php "</td>";
+        echo "<td>" ?> <input type=submit value="Create Type" name=add> <?php "</td>";
+        echo "</tr>"; ?>
+
+
+        </table>
     </form>
+
 </div>
 
 <?php

@@ -17,7 +17,7 @@ if (isset($_POST['delete'])) {
     if (mysqli_query($conn, $query)) {
         echo ("<script LANGUAGE='JavaScript'>
     window.alert('Property deleted');
-    window.location.href='../frontend/property.php';
+    window.location.href='../frontend/viewProperties.php'
     </script>");
         
     } else {
@@ -37,7 +37,7 @@ if (isset($_POST['delete'])) {
     if (mysqli_query($conn, $query)) {
         echo ("<script LANGUAGE='JavaScript'>
     window.alert('Property updated');
-    window.location.href='../frontend/property.php';
+    window.location.href='../frontend/viewProperties.php';
     </script>");
 
 
@@ -45,7 +45,15 @@ if (isset($_POST['delete'])) {
         echo "Error updating record: " . mysqli_error($conn);
     }
 
-} else if (isset($_POST['add'])) { /* VALIDATION - SHOULD NOT BE ABLE TO ADD A PROPERTY WITH NO DATA */
+} else if (isset($_POST['add'])) {
+
+    if(empty($_POST['type'])|| empty($_POST['street']) || empty($_POST['suburb']) || empty($_POST['state']) || empty($_POST['pc']) || empty($_POST['listprice'])  ){
+        echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Please insert data where fields have *');
+    window.location.href='../backend/addProperty.php';
+    </script>");
+        return;
+    }
 
     $result = mysqli_query($conn, "SELECT client_id FROM client WHERE client_mobile LIKE '$_POST[mobile]'");
     $row = mysqli_fetch_array($result);
@@ -58,7 +66,7 @@ if (isset($_POST['delete'])) {
     if (mysqli_query($conn, $queryAddProperty) ) {
         echo ("<script LANGUAGE='JavaScript'>
     window.alert('Property added');
-    window.location.href='../frontend/property.php';
+    window.location.href='../frontend/viewProperties.php'
     </script>");
 
     } else {

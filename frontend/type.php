@@ -9,7 +9,7 @@
         echo $_COOKIE["loggedin"];
     }
     else {
-        header("location:login.php");
+        header("location:../frontend/login.php");
 
     }
     ?>
