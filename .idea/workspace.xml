@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47079af6-aa87-46b2-b0f8-3f70a3316bde" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/image.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/image.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database Design.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/client.php" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/client.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,7 +44,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="property" pinned="false" current-in-tab="true">
+      <file leaf-file-name="property" pinned="false" current-in-tab="false">
         <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/property">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -71,7 +71,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client" pinned="false" current-in-tab="false">
+      <file leaf-file-name="client" pinned="false" current-in-tab="true">
         <entry file="das://9ed11ed5-b4a8-47b8-b9d1-e647c1291079/schema/s27840204/table/client">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
@@ -202,7 +202,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25815000" />
+    <option name="totallyTimeSpent" value="25818000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />

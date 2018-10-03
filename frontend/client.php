@@ -71,6 +71,7 @@
             echo "<td>" ?> <input type=text name=mailinglist value=<?php echo $row['client_mailinglist'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=submit value=SAVE name=update> <?php "</td>";
             echo "<td>" ?> <input type=submit value=DELETE name=delete> <?php "</td>";
+            echo "<td>" ?> <input type=hidden name=id value='<?php echo $row['client_id'] ?>'> <?php "</td>";
             echo "</tr>"; ?>
             </form>
              <?php
