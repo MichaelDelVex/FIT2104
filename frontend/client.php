@@ -40,7 +40,6 @@
         
         echo "<table border='1'>
         <tr>
-        <th>Client ID</th>
         <th>Given Name</th>
         <th>First Name</th>
         <th>Street</th>
@@ -57,13 +56,22 @@
             ?> 
             <form method="post" Action="../backend/modifyClient.php">
             <tr id=<?php echo $row['client_id'] ?> > <?php
-            echo "<td>" ?> <input type=text name=id value=<?php echo $row['client_id'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=gname value=<?php echo $row['client_gname'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=fname value=<?php echo $row['client_fname'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=street value=<?php echo $row['client_street'] ?> style="max-width:40px"> <?php "</td>";
-            echo "<td>" ?> <input type=text name=state value=<?php echo $row['client_state'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=gname value='<?php echo $row['client_gname'] ?>'> <?php "</td>";
+            echo "<td>" ?> <input type=text name=fname value='<?php echo $row['client_fname'] ?>'> <?php "</td>";
+            echo "<td>" ?> <input type=text name=street value='<?php echo $row['client_street'] ?>'> <?php "</td>";
+            echo "<td>" ?> 
+                <select name="state">
+                    <option value="NSW"<?php if ($row['client_state'] == 'NSW') echo ' selected="selected"'; ?>>NSW</option>
+                    <option value="NT"<?php if ($row['client_state'] == 'NT') echo ' selected="selected"'; ?>>NT</option>
+                    <option value="QLD"<?php if ($row['client_state'] == 'QLD') echo ' selected="selected"'; ?>>QLD</option>
+                    <option value="SA"<?php if ($row['client_state'] == 'SA') echo ' selected="selected"'; ?>>SA</option>
+                    <option value="TAS"<?php if ($row['client_state'] == 'TAS') echo ' selected="selected"'; ?>>TAS</option>
+                    <option value="VIC"<?php if ($row['client_state'] == 'VIC') echo ' selected="selected"'; ?>>VIC</option>
+                    <option value="WA"<?php if ($row['client_state'] == 'WA') echo ' selected="selected"'; ?>>WA</option>
+                </select> <?php 
+                "</td>";
             echo "<td>" ?> <input type=text name=suburb value=<?php echo $row['client_suburb'] ?>> <?php "</td>";
-            echo "<td>" ?> <input type=text name=pc value=<?php echo $row['client_pc'] ?> style="max-width:40px"> <?php "</td>";
+            echo "<td>" ?> <input type=text name=pc value=<?php echo $row['client_pc'] ?> style="max-width:40px;"> <?php "</td>";
             echo "<td>" ?> <input type=text name=email value=<?php echo $row['client_email'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=mobile value=<?php echo $row['client_mobile'] ?>> <?php "</td>";
             echo "<td>" ?> <input type=text name=mailinglist value=<?php echo $row['client_mailinglist'] ?>> <?php "</td>";
