@@ -58,7 +58,7 @@ $result = mysqli_query($conn,"SELECT * FROM type");
 </body>
 
 <!-- FOOTER -->
-<div class="footer">
+<div class="footer" style="visibility:hidden;">
     <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Home</button>
     <button class="tablinks" onclick="openTab(event, 'Property')">Property</button>
     <button class="tablinks" onclick="openTab(event, 'Client')">Client</button>
