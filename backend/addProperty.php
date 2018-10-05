@@ -69,7 +69,7 @@
         echo "<td>" ?> Listing price* <?php "</td>";
         echo "<td>" ?> <input type="number" name="listprice"> <?php "</td>";
         echo "</tr>"; ?><?php
-        echo "<td>" ?> Listing price* <?php "</td>";
+        echo "<td>" ?> Listing date* <?php "</td>";
         echo "<td>" ?> <input type="date" name="listdate"> <?php "</td>";
         echo "</tr>"; ?><?php
         echo "<td>" ?> Sale date <?php "</td>";
